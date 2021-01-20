@@ -14,7 +14,7 @@
    
     <div class="slidecontainer">
         <h1>summa</h1>
-        <input type="range" min="0" max="50000" value="10000" class="slider" id="myRange">
+        <input type="range" min="0" max="50000" value="10000" class="slider" id="myRange" onchange ="computeLoan()">
       </div>
       <p>Value: <span id ="value"></span></p>
       <div class="payback">
@@ -23,6 +23,19 @@
      
       <p class= "year_value">År: <span id ="year_value"></span></p>
 
+      </div>
+      <div class="interest" id="interest">
+        <p>Interest Rate: <input id="interest_rate" type="number" min="0" max="100" value="10" step=".1" onchange="computeLoan()">%</p>
+         
+      </div>
+      <div class="result">
+          <div class="result2">
+             <p>Dina Kostnader</p> 
+             <p class="permonth" >Kostnad per månad:</p>
+             <p class = "payment" id ="payment">total kostnad(amortering + rånta):</p>
+             <p>Amortering vs ränta</p>
+
+          </div>
       </div>
     <script src="script.js"></script>
 </body>

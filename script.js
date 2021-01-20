@@ -28,3 +28,14 @@ output2.innerHTML = paybackYear.value;
 paybackYear.oninput = function() {
     output2.innerHTML = this.value;
 }
+
+
+function computeLoan(){
+	var amount = document.getElementById('myRange').value;
+	var interest_rate = document.getElementById('interest_rate').value;
+	var months = document.getElementById('year_value').value;
+	var interest = (amount * (interest_rate * .01)) / months;
+	var payment = ((amount / months) + interest).toFixed(2);
+	payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	document.getElementById('payment').innerHTML = "Monthly Payment = $"+payment;
+}
