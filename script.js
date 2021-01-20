@@ -20,3 +20,11 @@ slider.oninput = function() {
 }*/
 
 }
+
+var paybackYear = document.getElementById("my_year");
+var output2 = document.getElementById("year_value");
+output2.innerHTML = paybackYear.value; 
+
+paybackYear.oninput = function() {
+    output2.innerHTML = this.value;
+}
