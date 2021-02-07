@@ -1,161 +1,92 @@
-.slidecontainer {
-    width: 75%;/* Width of the outside container */
-    margin-top: 40px;
-    margin-left: 80px;
+.generalContainer {
+  width: 70%;
+  margin-top: 40px;
+  margin-left: 80px;
+  padding-left: 10px;
+  background: #9db7ec;
 }
 
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: linear-gradient(90deg,rgb(117,252,117)60%), rgb(214,214,214)60%; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    border-radius: 13px;
-    box-shadow: 0px 1px 10px black;
-  }
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: red; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-}
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: red; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-}
-p{
-    margin-top: 50px;
-    margin-left: 80px;
-    opacity: 0.7;
-    color: black;
-    font-weight: bold;
+.inputContainer {
+  margin-top: 40px;
+  background: #9db7ec;
 }
 
-.slider::after{
-    content: '50000';
-    color:black;
-    font-size: 2rem;
-    position: absolute;
-    left: 73%;
-    top: 17%;
-}
-.slider::before{
-    content: '0';
-    color:black;
-    font-size: 2rem;
-    position: absolute;
-    left: 6%;
-    top: 17%;
-}
-
-.payback{
-    
-        width: 50%;/* Width of the outside container */
-        margin-top: 40px;
-        margin-left: 80px;
-    
-}
-
-.year_value{
-    position: relative;
-    right: 80px;
-    bottom: 25px;
-}
-
-
-.payback{
-    
-        width: 50%;/* Width of the outside container */
-        margin-top: 40px;
-        margin-left: 80px;
-    
-}
-.sliderTwo::after{
-    content: '5';
-    color:black;
-    font-size: 1rem;
-    position: absolute;
-    left: 42%;
-    top: 335px;
-    font-weight: bold;
-}
-.sliderTwo::before{
-    content: '1';
-    color:black;
-    font-size: 1rem;
-    position: absolute;
-    left: 6%;
-    top: 335px;
-    font-weight: bold;
-}
-
-.sliderTwo {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 75%; 
-    height: 25px; /* Specified height */
-    background: linear-gradient(90deg,rgb(117,252,117)60%), rgb(214,214,214)60%; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    border-radius: 13px;
-    box-shadow: 0px 1px 10px black;
-  }
-  .sliderTwo:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.sliderTwo::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: red; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-}
-  
-  .sliderTwo::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: red; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-
-  }
-
-  .interest{
-    font-size: 30px;
-    color: black;
-    font-weight: bold;
-    position: relative;
-    left: 70px;
-}
-
-.result2{
-    border: 5px solid black;
-    width: 40%;
+.costSummary{
+    border: 2px solid black;
+    width: 70%;
     margin: auto;
     background-color: turquoise;
-    ;
+    margin-left: 80px;
+    padding-left: 10px;
 }
-    
+
+table, tr, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: red;
+  width: 400px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 25px; /* Specified height */
+  outline: none; /* Remove outline */
+  border-radius: 13px;
+  box-shadow: 0px 1px 10px black;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: turquoise;
+  border-radius: 30%;
+}
+
+#amountSlider{
+  width: 500px;
+
+}
+
+#amountSlider::before{
+    content: '0';
+    color:black;
+    font-size: 1rem;
+    position: absolute;
+    left: 160px;
+    top: 170px;
+}
+
+#amountSlider::after{
+    content: '50000';
+    color:black;
+    font-size: 1rem;
+    position: absolute;
+    left: 605px;
+    top: 170px;
+}
+
+#yearsSlider{
+  width: 250px;
+}
+#yearsSlider::before{
+  content: '0';
+  color:black;
+  font-size: 1rem;
+  position: absolute;
+  left: 130px;
+  top: 330px;
+}
+
+#yearsSlider::after{
+  content: '5';
+  color:black;
+  font-size: 1rem;
+  position: absolute;
+  left: 350px;
+  top: 330px;
+}
+
 

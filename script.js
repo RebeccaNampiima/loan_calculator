@@ -1,41 +1,68 @@
-var slider = document.getElementById("myRange");
-var output = document.getElementById("value");
-output.innerHTML = slider.value; // Display the default slider value
+function updateConnectedElement(source)
+{
+    var sourceValue = document.getElementById(source).value;
+    var destination;
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-    output.innerHTML = this.value;
-  /*if(output= 0 && output>100000){
-      output.innerHTML = this.value.display = "none";
-  }else if(output=100001 && output>200000){
-    output.innerHTML = this.value.display = "none";
-  }else if(output=200001 && output>300000){
-    output.innerHTML = this.value.display = "none";
- }else if(output=300001 && output>400000){
-    output.innerHTML = this.value.display = "none";
-}else if(output=400001 && output>500000){
-    output.innerHTML = this.value.display = "none";
-}else{
-    output.innerHTML = this.value;
-}*/
+    switch (source)
+    {
+        case "amountSlider":
+            destination = "amountBox";
+            break;
+        case "amountBox":
+            destination = "amountSlider";
+            break;
+        case "yearsSlider":
+            destination = "yearsBox";
+            break;
+        case "yearsBox":
+            destination = "yearsSlider";
+            break;
+        default:
+            alert("Error: Unknown element '" + source + "'!");
+    }
 
+    // Set the destination value to the source value
+    document.getElementById(destination).value = sourceValue;
+
+    // Compute costs after any update on the above elements
+    callCompute();
 }
 
-var paybackYear = document.getElementById("my_year");
-var output2 = document.getElementById("year_value");
-output2.innerHTML = paybackYear.value; 
+function computeLoan(amount, yearsRemaining, totalCost = 0, totalAmortering = 0)
+{
+    var amortering = amount / yearsRemaining;
+    var rate = document.getElementById("rateBox").value;
+    var interest = amount * rate / 100;
 
-paybackYear.oninput = function() {
-    output2.innerHTML = this.value;
+    totalCost = totalCost + amortering + interest;
+    totalAmortering = totalAmortering + amortering;
+
+    yearsRemaining = yearsRemaining - 1;
+
+    if (yearsRemaining > 0)
+    {
+        amount = amount - amortering;
+        computeLoan(amount, yearsRemaining, totalCost);
+    }
+    else
+    {
+        let yearsTotal = document.getElementById("yearsBox").value;
+        document.getElementById("costPerMonBox").value = Math.round(totalCost/ yearsTotal / 12);
+        document.getElementById("totalCostBox").value = Math.round(totalCost);
+
+        let amorteringPercent = (totalAmortering / totalCost) * 100;
+        document.getElementsByTagName("td")[0].style.width = amorteringPercent+"%";
+        document.getElementsByTagName("td")[0].style.backgroundColor = "orange";
+    }
 }
 
-
-function computeLoan(){
-	var amount = document.getElementById('myRange').value;
-	var interest_rate = document.getElementById('interest_rate').value;
-	var months = document.getElementById('year_value').value;
-	var interest = (amount * (interest_rate * .01)) / months;
-	var payment = ((amount / months) + interest).toFixed(2);
-	payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	document.getElementById('payment').innerHTML = "Monthly Payment = $"+payment;
+function callCompute()
+{
+    // Get current values and compute costs
+    var amount = document.getElementById("amountBox").value;
+    var years = document.getElementById("yearsBox").value;
+    computeLoan(amount, years);
 }
+
+// Compute the default values
+window.onload = callCompute;
